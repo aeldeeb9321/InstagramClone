@@ -7,6 +7,15 @@
 
 import UIKit
 
+extension UIViewController{
+    func configureGradientLayer(){
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
+        gradient.locations = [0, 1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+}
 extension UIView{
     func anchor(top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, paddingTop: CGFloat = 0, paddingLeading: CGFloat = 0, paddingBottom: CGFloat = 0, paddingTrailing: CGFloat = 0){
         translatesAutoresizingMaskIntoConstraints = false
@@ -28,7 +37,7 @@ extension UIView{
         }
     }
     
-    func setDimensions(height: CGFloat, width: CGFloat){
+    func setDimensions(height: CGFloat, width: CGFloat = 0){
         translatesAutoresizingMaskIntoConstraints = false
         
         heightAnchor.constraint(equalToConstant: height).isActive = true
@@ -49,11 +58,13 @@ extension UIView{
 extension UITextField{
     func makeTextField(placeholder: String, isSecureField: Bool) -> UITextField{
         let tf = UITextField()
-        tf.borderStyle = .bezel
-        tf.textColor = .black
-        tf.backgroundColor = .white
+        tf.borderStyle = .none
+        tf.textColor = .white
+        tf.backgroundColor = UIColor(white: 1, alpha: 0.1)
         tf.font = UIFont.systemFont(ofSize: 16)
-        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor : UIColor.darkGray])
+        tf.keyboardAppearance = .dark
+        tf.keyboardType = .emailAddress
+        tf.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor : UIColor.white])
         tf.isSecureTextEntry = isSecureField
         return tf
     }
@@ -72,7 +83,7 @@ extension UILabel{
     
     func makeAttributedLabel(withFirstText user: String, withSecondText caption: String) -> UILabel{
         let label = UILabel()
-        let attString = NSMutableAttributedString(string: user, attributes: [.font : UIFont.boldSystemFont(ofSize: 13)])
+        let attString = NSMutableAttributedString(string: user, attributes: [.font : UIFont.boldSystemFont(ofSize: 14)])
         attString.append(NSAttributedString(string: caption, attributes: [.font : UIFont.systemFont(ofSize: 13)]))
         label.attributedText = attString
         label.textColor = .label
@@ -84,19 +95,26 @@ extension UILabel{
 }
 
 extension UIButton{
-    func makeButton(withTitle title: String? = nil, withImage image: UIImage? = nil, titleColor: UIColor? = nil, buttonColor: UIColor, isRounded: Bool) -> UIButton{
+    func makeButton(withTitle title: String? = nil, withImage image: UIImage? = nil, titleColor: UIColor? = nil, buttonColor: UIColor? = nil, isRounded: Bool) -> UIButton{
         let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
         button.setImage(image, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         button.backgroundColor = buttonColor
         
         if isRounded{
-            button.layer.cornerRadius = 12
+            button.layer.cornerRadius = 6
         }
         
         return button
+    }
+    
+    func attributedTitle(firstPart: String, secondPart: String){
+        let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 16)]
+        let attributedTitle = NSMutableAttributedString(string: firstPart, attributes: atts)
+        attributedTitle.append(NSAttributedString(string: secondPart, attributes: [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.boldSystemFont(ofSize: 16)]))
+        setAttributedTitle(attributedTitle, for: .normal)
     }
 }
 

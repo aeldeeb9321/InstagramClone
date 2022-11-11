@@ -9,6 +9,7 @@ import UIKit
 
 class FeedCell: UICollectionViewCell{
     //MARK: - Properties
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -34,6 +35,11 @@ class FeedCell: UICollectionViewCell{
     
     private let captionLabel: UILabel = {
         let label = UILabel().makeAttributedLabel(withFirstText: "joker", withSecondText: " Venom is my next target")
+        return label
+    }()
+    
+    private let postTimeLabel: UILabel = {
+        let label = UILabel().makeLabel(withText: "2 days ago", textColor: .lightGray, withFont: UIFont.systemFont(ofSize: 12))
         return label
     }()
     
@@ -101,12 +107,12 @@ class FeedCell: UICollectionViewCell{
         buttonStack.axis = .horizontal
         buttonStack.spacing = 8
         buttonStack.alignment = .leading
-        buttonStack.distribution = .fillProportionally
+        buttonStack.distribution = .fillEqually
         addSubview(buttonStack)
         buttonStack.anchor(top: userPostImageView.bottomAnchor, leading: safeAreaLayoutGuide.leadingAnchor,paddingTop: 10, paddingLeading: 6)
         
         
-        let postDetailStack = UIStackView(arrangedSubviews: [numberOfLikesLabel, captionLabel])
+        let postDetailStack = UIStackView(arrangedSubviews: [numberOfLikesLabel, captionLabel, postTimeLabel])
         postDetailStack.axis = .vertical
         postDetailStack.spacing = 5
         postDetailStack.alignment = .leading
