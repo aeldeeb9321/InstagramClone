@@ -21,6 +21,7 @@
 		25CF231E291C935E00AE22C0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF231D291C935E00AE22C0 /* Extensions.swift */; };
 		25CF23D1291DE82000AE22C0 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF23D0291DE82000AE22C0 /* LoginController.swift */; };
 		25CF23D3291DE82A00AE22C0 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF23D2291DE82A00AE22C0 /* RegistrationController.swift */; };
+		25CF23D5291E050400AE22C0 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF23D4291E050400AE22C0 /* AuthenticationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		25CF231D291C935E00AE22C0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		25CF23D0291DE82000AE22C0 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		25CF23D2291DE82A00AE22C0 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		25CF23D4291E050400AE22C0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		25CF230E291C813900AE22C0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				25CF23D4291E050400AE22C0 /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25CF23D5291E050400AE22C0 /* AuthenticationViewModel.swift in Sources */,
 				25CF23D1291DE82000AE22C0 /* LoginController.swift in Sources */,
 				25CF22FC291C80F600AE22C0 /* MainTabController.swift in Sources */,
 				25CF2314291C82F100AE22C0 /* SearchController.swift in Sources */,
