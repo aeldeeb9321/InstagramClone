@@ -145,5 +145,5 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         addPhotoButton.layer.masksToBounds = true
         //dismiss the image picker
         self.dismiss(animated: true)
-    }
+    }  
 }
