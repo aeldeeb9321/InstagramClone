@@ -11,6 +11,7 @@ class RegistrationController: UIViewController{
     
     //MARK: - Properties
     private var viewModel = RegistrationViewModel()
+    private var profileImage: UIImage?
     
     private lazy var addPhotoButton: UIButton = {
         let button = UIButton().makeButton(withImage: UIImage(named: "plus_photo"), isRounded: false)
@@ -43,7 +44,7 @@ class RegistrationController: UIViewController{
     private let userNameTextfield = UITextField().makeTextField(placeholder: " Username", isSecureField: false)
     
     private lazy var signUpButton: UIButton = {
-        let button = UIButton().makeButton(withTitle: "Sign Up", titleColor: .white, buttonColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), isRounded: true)
+        let button = UIButton().makeButton(withTitle: "Sign Up", titleColor: .white, buttonColor: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1).withAlphaComponent(0.5), isRounded: true)
         button.setDimensions(height: 50)
         button.isEnabled = false
         button.addTarget(self, action: #selector(handleUserRegistration), for: .touchUpInside)
@@ -101,7 +102,13 @@ class RegistrationController: UIViewController{
     }
     
     @objc private func handleUserRegistration(){
-        print("User has signed up")
+        guard let email = emailTextfield.text else{ return }
+        guard let password = passwordTextfield.text else{ return }
+        guard let fullname = fullNameTextfield.text else{ return }
+        guard let username = userNameTextfield.text else{ return }
+        guard let profileImage = self.profileImage else{ return }
+        
+        AuthService.registerUser(withCredential: AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage))
     }
     
     @objc private func handleAlreadyHaveAccountTapped(){
@@ -145,5 +152,5 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         addPhotoButton.layer.masksToBounds = true
         //dismiss the image picker
         self.dismiss(animated: true)
-    }  
+    }
 }

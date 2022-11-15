@@ -32,6 +32,8 @@
 		25CF24672920872D00AE22C0 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 25CF24662920872D00AE22C0 /* FirebaseStorage */; };
 		25CF246A2920877600AE22C0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 25CF24692920877600AE22C0 /* SDWebImage */; };
 		25CF246D29208AE000AE22C0 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 25CF246C29208AE000AE22C0 /* YPImagePicker */; };
+		25CF24C52923291E00AE22C0 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF24C42923291E00AE22C0 /* ImageUploader.swift */; };
+		25CF24C72923292600AE22C0 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CF24C62923292600AE22C0 /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		25CF23D2291DE82A00AE22C0 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		25CF23D4291E050400AE22C0 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		25CF24572920860400AE22C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25CF24C42923291E00AE22C0 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		25CF24C62923292600AE22C0 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 		25CF230C291C812E00AE22C0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				25CF24C42923291E00AE22C0 /* ImageUploader.swift */,
+				25CF24C62923292600AE22C0 /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -265,10 +271,12 @@
 				25CF22F8291C80F600AE22C0 /* AppDelegate.swift in Sources */,
 				25CF2318291C831100AE22C0 /* NotificationsController.swift in Sources */,
 				25CF22FA291C80F600AE22C0 /* SceneDelegate.swift in Sources */,
+				25CF24C52923291E00AE22C0 /* ImageUploader.swift in Sources */,
 				25CF231E291C935E00AE22C0 /* Extensions.swift in Sources */,
 				25CF2316291C830000AE22C0 /* PostController.swift in Sources */,
 				25CF2312291C82E500AE22C0 /* FeedController.swift in Sources */,
 				25CF231A291C832600AE22C0 /* ProfileController.swift in Sources */,
+				25CF24C72923292600AE22C0 /* AuthService.swift in Sources */,
 				25CF23D3291DE82A00AE22C0 /* RegistrationController.swift in Sources */,
 				25CF231C291C92D100AE22C0 /* FeedCell.swift in Sources */,
 			);
