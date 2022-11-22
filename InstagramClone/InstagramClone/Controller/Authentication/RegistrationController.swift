@@ -105,10 +105,19 @@ class RegistrationController: UIViewController{
         guard let email = emailTextfield.text else{ return }
         guard let password = passwordTextfield.text else{ return }
         guard let fullname = fullNameTextfield.text else{ return }
-        guard let username = userNameTextfield.text else{ return }
+        guard let username = userNameTextfield.text?.lowercased() else{ return }
         guard let profileImage = self.profileImage else{ return }
         
-        AuthService.registerUser(withCredential: AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage))
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        
+        AuthService.registerUser(withCredential: credentials) { error in
+            if let error = error{
+                print("DEBUG: Failed to register user \(error.localizedDescription)!")
+                return
+            }
+            //If we pass that error check then we have successfully registered our user, then we will want to take our user to the mainTabBarControllr
+            print("DEBUG: Successfully registered user with firestore..")
+        }
     }
     
     @objc private func handleAlreadyHaveAccountTapped(){

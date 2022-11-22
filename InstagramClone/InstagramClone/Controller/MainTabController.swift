@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MainTabController: UITabBarController {
     //MARK: - Properties
@@ -18,6 +19,20 @@ class MainTabController: UITabBarController {
         configureViewControllers()
     }
 
+    //MARK: - API
+    private func checkIfUserIsSignedIn(){
+        if Auth.auth().currentUser == nil{
+            //since the auth uses an api call to check if the current user exists so we need to hop back on the maint thread to present the loginController.
+            DispatchQueue.main.async {
+                let controller = LoginController()
+                let nav = UINavigationController(rootViewController: controller)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+            
+        }
+    }
+    
     //MARK: - Helpers
     
     private func configureViewControllers(){

@@ -53,6 +53,7 @@ class LoginController: UIViewController{
         button.addTarget(self, action: #selector(handleSignUpButtonTapped), for: .touchUpInside)
         return button
     }()
+    
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
